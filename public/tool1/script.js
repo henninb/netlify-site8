@@ -30,8 +30,6 @@ function uuidv4() {
   );
 }
 
-// console.log(uuidv4());
-
 function setValue(id,newvalue) {
   var s= document.getElementById(id);
   s.value = newvalue;
