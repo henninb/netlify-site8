@@ -1,2 +1,6 @@
 *.crt
 *.key
+node_modules
+
+# Local Netlify folder
+.netlify
