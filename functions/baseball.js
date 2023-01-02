@@ -1,11 +1,10 @@
 import fetch from 'node-fetch';
 
-// const API_ENDPOINT = 'https://statsapi.mlb.com/api/v1/schedule'
-
+const year =  new Date().getFullYear()
 const url = new URL('https://statsapi.mlb.com/api/v1/schedule')
-let params = {
-      startDate: "1/01/2023",
-      endDate: "12/31/2023",
+const params = {
+      startDate: "1/01/" + year,
+      endDate: "12/31/" + year,
       gameTypes: "R",
       sportId: "1",
       teamId: "142",

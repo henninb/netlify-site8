@@ -2,9 +2,7 @@
 // const fetch = request('node-fetch').default;
 import fetch from 'node-fetch';
 
-// const API_ENDPOINT = 'https://cat-fact.herokuapp.com/facts'
 const API_ENDPOINT = 'https://catfact.ninja/fact'
-//const API_ENDPOINT = 'https://www.boredapi.com/api/activity'
 
 exports.handler = async (event, context) => {
   let response
