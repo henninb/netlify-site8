@@ -28,6 +28,8 @@
         data.forEach(function(games){
           output += `
             <div class="card card-body mb-3">
+              <p>${games.RoundNumber}</p>
+              <p>${games.DateUtc}</p>
               <h3>${games.HomeTeam}</h3>
               <p>${games.AwayTeam}</p>
             </div>
