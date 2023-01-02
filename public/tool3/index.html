@@ -74,15 +74,15 @@
       //fetch('https://fixturedownload.com/feed/json/nhl-2022/minnesota-wild')
       //fetch('https://jsonplaceholder.typicode.com/posts')
       //fetch('https://localhost/api')
-      fetch('https://localhost/wild-hockey/api')
+      fetch('/api/cat-facts')
       .then((res) => res.json())
       .then((data) => {
         let output = '<h2 class="mb-4">Posts</h2>';
         data.forEach(function(post){
           output += `
             <div class="card card-body mb-3">
-              <h3>${post.title}</h3>
-              <p>${post.body}</p>
+              <h3>${post.fact}</h3>
+              <p>${post.length}</p>
             </div>
           `;
         });
