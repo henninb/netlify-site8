@@ -1,7 +1,6 @@
-exports.handler = (event, context, callback) => {
-  const message = 'Hello, World!';
-  callback(null, {
+exports.handler = (event, context) => {
+    return {
     statusCode: 200,
-    body: "hello",
-  });
+    body: "testing"
+  }
 };
