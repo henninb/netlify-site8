@@ -1,6 +1,10 @@
 [build]
+  command = "npm run build"
   functions = "functions"
   publish = "out"
+
+[build.environment]
+  NODE_VERSION = "20"
 
 [functions]
   node_bundler = "esbuild"
