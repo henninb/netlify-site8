@@ -1,0 +1,255 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #0b0b0d;
+  --surface: #111115;
+  --surface-hi: #18181e;
+  --border: #232330;
+  --border-hi: #3a3a52;
+  --accent: #e8a04a;
+  --accent-glow: rgba(232, 160, 74, 0.1);
+  --accent-dim: rgba(232, 160, 74, 0.45);
+  --text: #c8c4b8;
+  --text-muted: #5a5750;
+  --text-bright: #edeae0;
+}
+
+html {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Courier New', 'Lucida Console', 'Monaco', monospace;
+  min-height: 100vh;
+}
+
+body {
+  min-height: 100vh;
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 3.5rem 2rem 5rem;
+  position: relative;
+}
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(circle, rgba(232, 160, 74, 0.06) 1px, transparent 1px);
+  background-size: 36px 36px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(ellipse at center, transparent 55%, rgba(11, 11, 13, 0.85) 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+header,
+main,
+footer,
+section {
+  position: relative;
+  z-index: 1;
+}
+
+header {
+  margin-bottom: 3.5rem;
+}
+
+.header-eyebrow {
+  margin-bottom: 0.6rem;
+  color: var(--accent);
+  font-size: 0.6rem;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+}
+
+h1 {
+  color: var(--text-bright);
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: normal;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+h1 em {
+  color: var(--accent);
+  font-style: normal;
+}
+
+.header-sub {
+  margin-top: 0.8rem;
+  color: var(--text-muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+}
+
+.header-rule {
+  height: 1px;
+  margin-top: 1.75rem;
+  background: linear-gradient(to right, var(--border-hi), var(--border), transparent);
+}
+
+section {
+  margin-bottom: 3rem;
+}
+
+.section-label {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+}
+
+.section-label h2 {
+  color: var(--text-muted);
+  font-size: 0.6rem;
+  font-weight: normal;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.section-label::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+}
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  overflow: hidden;
+  background: var(--surface);
+  color: var(--text);
+  padding: 1.5rem 1.6rem;
+  text-decoration: none;
+  transition: background 0.12s ease, color 0.12s ease;
+  animation: fadeUp 0.5s ease both;
+}
+
+.card::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--accent-glow);
+  opacity: 0;
+  transition: opacity 0.12s ease;
+}
+
+.card:hover {
+  background: var(--surface-hi);
+}
+
+.card:hover::after {
+  opacity: 1;
+}
+
+.card:hover .card-name {
+  color: var(--accent);
+}
+
+.card:hover .badge {
+  color: var(--accent-dim);
+  border-color: var(--accent-dim);
+}
+
+.card:hover .arrow {
+  color: var(--accent);
+  transform: translate(3px, -3px);
+}
+
+.card-name,
+.card-path,
+.arrow,
+.badge {
+  position: relative;
+  z-index: 1;
+}
+
+.card-name {
+  color: var(--text-bright);
+  font-size: 1rem;
+  transition: color 0.12s;
+}
+
+.card-path {
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
+
+.badge {
+  display: inline-flex;
+  width: fit-content;
+  align-items: center;
+  border: 1px solid var(--border-hi);
+  border-radius: 2px;
+  color: var(--text-muted);
+  font-size: 0.62rem;
+  letter-spacing: 0.12em;
+  padding: 0.15em 0.45em;
+  text-transform: uppercase;
+  transition: color 0.12s, border-color 0.12s;
+}
+
+.arrow {
+  position: absolute;
+  top: 0.7rem;
+  right: 0.75rem;
+  color: var(--border-hi);
+  font-size: 0.65rem;
+  transition: transform 0.12s ease, color 0.12s ease;
+}
+
+footer {
+  margin-top: 1rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-muted);
+  font-size: 0.58rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+}

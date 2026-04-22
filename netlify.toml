@@ -1,12 +1,12 @@
 [build]
   functions = "functions"
-  publish = "public"
+  publish = "out"
 
 [functions]
   node_bundler = "esbuild"
 
 [dev]
-  publish = "public"
+  publish = "out"
   functions = "functions"
 
 [[redirects]]
@@ -14,8 +14,3 @@
   to = "/.netlify/functions/:splat"
   status = 200
   force = true # COMMENT: ensure that we always redirect
-
-# [[redirects]]
-#    from = "/*"
-#    to = "/index.html"
-#    status = 200
