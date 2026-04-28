@@ -10,14 +10,10 @@ export default function HomePage() {
     if (parts.length >= 2) setBaseDomain(parts.slice(-2).join('.'))
   }, [])
 
-  const sites = [
-    { name: 'brianhenning.com', href: 'https://brianhenning.com' },
-    { name: 'bhenning.com', href: 'https://bhenning.com' },
-    ...Array.from({ length: 9 }, (_, i) => ({
-      name: `site${i + 1}`,
-      href: `https://site${i + 1}.${baseDomain}`,
-    })),
-  ]
+  const sites = Array.from({ length: 9 }, (_, i) => ({
+    name: `site${i + 1}`,
+    href: `https://site${i + 1}.${baseDomain}`,
+  }))
 
   return (
     <>
