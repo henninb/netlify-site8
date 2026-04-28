@@ -1,4 +1,6 @@
 const sites = [
+  { name: 'brianhenning.com', href: 'https://brianhenning.com' },
+  { name: 'bhenning.com', href: 'https://bhenning.com' },
   { name: 'site1', href: 'https://site1.bhenning.com' },
   { name: 'site2', href: 'https://site2.bhenning.com' },
   { name: 'site3', href: 'https://site3.bhenning.com' },
