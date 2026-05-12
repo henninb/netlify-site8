@@ -7,6 +7,10 @@ cd "$ROOT_DIR"
 
 PORT="${PORT:-4000}"
 
+export PX_APP_ID="$(gopass show -o netlify-site8/px_app_id)"
+export PX_AUTH_TOKEN="$(gopass show -o netlify-site8/px_auth_token)"
+export PX_COOKIE_SECRET="$(gopass show -o netlify-site8/px_cookie_secret)"
+
 if ! command -v node >/dev/null 2>&1; then
   echo "Node.js is required but was not found in PATH."
   echo "This project expects Node $(cat .nvmrc 2>/dev/null || echo 20)+."
