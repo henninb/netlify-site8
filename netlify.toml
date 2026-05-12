@@ -1,20 +1,9 @@
 [build]
   command = "npm run build"
-  functions = "functions"
-  publish = "out"
+  publish = ".next"
 
 [build.environment]
   NODE_VERSION = "20"
 
-[functions]
-  node_bundler = "esbuild"
-
-[dev]
-  publish = "out"
-  functions = "functions"
-
-[[redirects]]
-  from = "/api/*"
-  to = "/.netlify/functions/:splat"
-  status = 200
-  force = true # COMMENT: ensure that we always redirect
+[[plugins]]
+  package = "@netlify/plugin-nextjs"
