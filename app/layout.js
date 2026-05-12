@@ -12,8 +12,8 @@ export default function RootLayout({ children }) {
       <body>
         <Script
           id="px-script"
-          data-app-id="PXjJ0cYtn9"
-          src="//client.px-cloud.net/PXjJ0cYtn9/main.min.js"
+          data-app-id={process.env.PX_APP_ID}
+          src={`//client.px-cloud.net/${process.env.PX_APP_ID}/main.min.js`}
           strategy="afterInteractive"
         />
         {children}

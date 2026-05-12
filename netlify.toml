@@ -4,6 +4,7 @@
 
 [build.environment]
   NODE_VERSION = "20"
+  SECRETS_SCAN_OMIT_KEYS = "PX_APP_ID"
 
 [[plugins]]
   package = "@netlify/plugin-nextjs"
